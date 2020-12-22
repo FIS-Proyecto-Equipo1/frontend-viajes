@@ -1,20 +1,21 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';  //estilo para los componentes
 import './App.css';
-import Contacts from './contacts.js';
+import Viajes from './viajes.js';
+import Viajes_curso from './viajes_curso';
 
 function App() {
 
-  const contacts = [{
-    name: "Robert",
-    phone: "666"
-  },
-  {name: "Juan", phone: "666"}];
+  //const viajes2 = [
+  //  {cliente: "555", id_vehiculo: "1023", estado: "EN CURSO", duracion: "00:05:54"}
+  //];
 
   return (
     <div>
-      <h1>Hello World</h1>
-      <Contacts contacts={contacts}/>
+      <h1>Viajes en Curso</h1>
+      <Viajes_curso/>
+      <h1>Historial de viajes</h1>
+      <Viajes/>
     </div>
   );
 }
