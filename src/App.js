@@ -6,10 +6,6 @@ import Viajes_curso from './viajes_curso';
 
 function App() {
 
-  //const viajes2 = [
-  //  {cliente: "555", id_vehiculo: "1023", estado: "EN CURSO", duracion: "00:05:54"}
-  //];
-
   return (
     <div>
       <h1>Viajes en Curso</h1>

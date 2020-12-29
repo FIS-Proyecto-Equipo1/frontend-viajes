@@ -1,7 +1,6 @@
 import React from 'react';
-import Viaje from './viaje.js';
+import Viaje_curso from './viaje_curso.js';
 import ViajesApi from './ViajesApi.js';
-import Alert from './Alert.js';
 
 
 class Viajes_curso extends React.Component {
@@ -9,8 +8,9 @@ class Viajes_curso extends React.Component {
         super(props);
         this.state = {
             errorInfo: null,
-            viajes: []
+            viajes_curso: []
         };
+        this.handleFinalizarviaje = this.handleFinalizarviaje.bind(this);
     }
 
     componentDidMount() {  //react va a llamar a este método cuando el componente se instancia
@@ -18,7 +18,7 @@ class Viajes_curso extends React.Component {
             .then(
                 (result) => {
                     this.setState({
-                        viajes: result
+                        viajes_curso: result
                     })
                 },
                 (error) => {
@@ -36,13 +36,14 @@ class Viajes_curso extends React.Component {
     }
 
     handleFinalizarviaje(){
-        <Alert message="Estas seguro?" />
+        this.setState(prevState => ({
+            viajes_curso: prevState.viajes_curso.filter((c) => c.estado !== 'EN CURSO')
+        }))
     }
 
     render() {
         return(
             <div>
-            
             <table class="table">
             <thead>
                 <tr>
@@ -50,11 +51,12 @@ class Viajes_curso extends React.Component {
                     <th>id_vehiculo</th>
                     <th>estado</th>
                     <th>duracion</th>
-                    <td><button className="btn btn-primary" onClick={this.handleFinalizarviaje}>FINALIZAR VIAJE</button></td>
+
                 </tr>
             </thead>
-            {this.state.viajes.map((viaje) =>
-                <Viaje viaje={viaje}/>
+            {this.state.viajes_curso.map((viaje_curso) =>
+                <Viaje_curso key={viaje_curso.id_vehiculo} viaje_curso={viaje_curso} 
+                FinalizarViaje={this.handleFinalizarviaje}/>
             )}
             </table>
             </div>
