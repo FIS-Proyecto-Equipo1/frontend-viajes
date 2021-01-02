@@ -9,7 +9,7 @@ function Viaje_curso(props) {
         <td>duracion: {props.viaje_curso.duracion}</td>
         <td>
             <button className="btn btn-primary" onClick={() => 
-                props.FinalizarViaje(props.viaje)}>Finalizar Viaje</button>
+                props.FinalizarViaje(props.viaje_curso)}>Finalizar Viaje</button>
         </td>
     </tr>
     );

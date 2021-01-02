@@ -39,7 +39,12 @@ class Viajes_curso extends React.Component {
         this.setState(prevState => ({
             viajes_curso: prevState.viajes_curso.filter((c) => c.estado !== 'EN CURSO')
         }))
+        this.state.viajes_curso.map((viaje_curso) =>
+        ViajesApi.EndTravel(viaje_curso._id))
     }
+    /*handleFinalizarviaje(){
+        this.state.viajes_curso.map(this.setState({estado: 'Finalizado'}))
+    }*/
 
     render() {
         return(
@@ -55,7 +60,9 @@ class Viajes_curso extends React.Component {
                 </tr>
             </thead>
             {this.state.viajes_curso.map((viaje_curso) =>
-                <Viaje_curso key={viaje_curso.id_vehiculo} viaje_curso={viaje_curso} 
+                <Viaje_curso 
+                key={viaje_curso.id_vehiculo} 
+                viaje_curso={viaje_curso} 
                 FinalizarViaje={this.handleFinalizarviaje}/>
             )}
             </table>
