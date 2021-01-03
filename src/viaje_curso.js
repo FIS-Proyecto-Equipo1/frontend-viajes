@@ -1,5 +1,9 @@
 import React from 'react';
 
+function refreshPage() {
+    window.location.reload();
+  }
+
 function Viaje_curso(props) {
     return(
     <tr>
@@ -9,7 +13,7 @@ function Viaje_curso(props) {
         <td>duracion: {props.viaje_curso.duracion}</td>
         <td>
             <button className="btn btn-primary" onClick={() => 
-                props.FinalizarViaje(props.viaje_curso)}>Finalizar Viaje</button>
+                {props.FinalizarViaje(props.viaje_curso); refreshPage()}}>Finalizar Viaje</button>
         </td>
     </tr>
     );

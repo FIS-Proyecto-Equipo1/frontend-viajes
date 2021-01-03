@@ -10,7 +10,9 @@ class Viajes extends React.Component {
             errorInfo: null,
             viajes: []
         };
+        
     }
+    
 
     componentDidMount() {  //react va a llamar a este método cuando el componente se instancia
         ViajesApi.getAllTravels()

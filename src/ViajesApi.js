@@ -41,15 +41,17 @@ class ViajesApi{
     }   
 
     static EndTravel(_id) {
-        const data = {'estado': 'Finalizado'}
+        //const data = {'estado': 'Finalizado'}
         const headers = this.requestHeaders();
         const request = new Request(ViajesApi.API_BASE_URL + "/travels/" + _id, {
             method: 'PATCH',
-            headers: headers,
-            body: data
-            //body: JSON.stringify(data)
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            //body: data,
+            body: JSON.stringify({'estado': 'Finalizado'})
         });
-
         return fetch(request).then(response => {
             return response.json();
         });
